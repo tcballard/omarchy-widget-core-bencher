@@ -1,0 +1,11 @@
+[package]
+name = "omarchy-widget-core-bencher"
+version = "0.0.1"
+edition = "2021"
+rust-version = "1.89"
+license = "MIT"
+description = "Bounded desktop workloads and resource measurements for Omarchy Widget Core"
+
+[dependencies]
+serde_json = "=1.0.151"
+libc = "=0.2.186"
