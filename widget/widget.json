@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "coreApi": 3,
+  "kind": "desktop-widget",
+  "id": "io.github.tcballard.widget-core-bencher",
+  "name": "Widget Test Bench",
+  "version": "0.0.1",
+  "entryPoint": "View.qml",
+  "families": ["small", "medium", "large"],
+  "defaultFamily": "small",
+  "defaults": {"mode": "idle", "durationSeconds": 60, "seed": 1},
+  "settingsVersion": 1,
+  "settingsSchema": {
+    "type": "object",
+    "properties": {
+      "mode": {"type": "string", "enum": ["idle", "dashboard"]},
+      "durationSeconds": {"type": "integer", "minimum": 5, "maximum": 180},
+      "seed": {"type": "integer", "minimum": 1, "maximum": 100}
+    },
+    "required": ["mode", "durationSeconds", "seed"],
+    "additionalProperties": false
+  },
+  "capabilities": [],
+  "refresh": "none",
+  "dependencies": {"commands": []},
+  "requires": ["settings-schema"]
+}
