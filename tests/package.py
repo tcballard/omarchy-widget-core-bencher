@@ -49,6 +49,8 @@ Window {
                 QTest.qWait(450)
                 assert view.property('ticks') > 0 if mode == 'dashboard' else view.property('ticks') == 0
                 assert not window.grabWindow().isNull()
+                content = view.findChild(QObject, 'content')
+                assert content.property('implicitHeight') <= height, (family, mode, content.property('implicitHeight'), height)
                 if family == 'small' and not light and mode == 'dashboard':
                     QTest.qWait(4800)
                     assert view.property('finished') is True

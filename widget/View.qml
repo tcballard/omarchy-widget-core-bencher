@@ -43,6 +43,7 @@ Item {
         onTriggered: root.finished = true
     }
     Column {
+        objectName: "content"
         anchors.fill: parent
         spacing: root.metrics.space(6)
         Text {
@@ -83,7 +84,7 @@ Item {
             textFormat: Text.PlainText; elide: Text.ElideRight
         }
         Repeater {
-            model: root.dashboard ? (root.widgetContext.family === "small" ? 2 : 6) : 0
+            model: root.dashboard ? (root.widgetContext.family === "large" ? 6 : 2) : 0
             delegate: Text {
                 required property int index
                 width: root.width
