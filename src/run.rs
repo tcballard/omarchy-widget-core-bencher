@@ -304,6 +304,9 @@ impl Session {
             check_stop()?;
             let time = self.started.elapsed().as_secs_f64();
             let values = self.sample(name)?;
+            if !values.iter().any(|v| v["label"] == "core") {
+                return Err("Core cgroup could not be measured".into());
+            }
             if name != "core-baseline" && !values.iter().any(|v| v["label"] == "witness") {
                 return Err("Healthy witness cgroup disappeared during measurement".into());
             }
